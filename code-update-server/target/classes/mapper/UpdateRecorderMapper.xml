@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.chenwei.update.mapper.UpdateRecorderMapper">
+  <resultMap id="BaseResultMap" type="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    <!--@Table tbl_update_recorder-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="serial_id" jdbcType="VARCHAR" property="serialId" />
+    <result column="phone_os_type" jdbcType="VARCHAR" property="phoneOsType" />
+    <result column="phone_version" jdbcType="VARCHAR" property="phoneVersion" />
+    <result column="phone_type" jdbcType="VARCHAR" property="phoneType" />
+    <result column="version_name" jdbcType="VARCHAR" property="versionName" />
+    <result column="application_id" jdbcType="VARCHAR" property="applicationId" />
+    <result column="application_version_id" jdbcType="VARCHAR" property="applicationVersionId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_status" jdbcType="VARCHAR" property="updateStatus" />
+    <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="download_time" jdbcType="TIMESTAMP" property="downloadTime" />
+    <result column="install_time" jdbcType="TIMESTAMP" property="installTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, serial_id, phone_os_type, phone_version, phone_type, version_name, application_id, 
+    application_version_id, create_time, update_status, check_time, download_time, install_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_update_recorder
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from tbl_update_recorder
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    insert into tbl_update_recorder (id, serial_id, phone_os_type, 
+      phone_version, phone_type, version_name, 
+      application_id, application_version_id, create_time, 
+      update_status, check_time, download_time, 
+      install_time)
+    values (#{id,jdbcType=VARCHAR}, #{serialId,jdbcType=VARCHAR}, #{phoneOsType,jdbcType=VARCHAR}, 
+      #{phoneVersion,jdbcType=VARCHAR}, #{phoneType,jdbcType=VARCHAR}, #{versionName,jdbcType=VARCHAR}, 
+      #{applicationId,jdbcType=VARCHAR}, #{applicationVersionId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateStatus,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{downloadTime,jdbcType=TIMESTAMP}, 
+      #{installTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    insert into tbl_update_recorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="serialId != null">
+        serial_id,
+      </if>
+      <if test="phoneOsType != null">
+        phone_os_type,
+      </if>
+      <if test="phoneVersion != null">
+        phone_version,
+      </if>
+      <if test="phoneType != null">
+        phone_type,
+      </if>
+      <if test="versionName != null">
+        version_name,
+      </if>
+      <if test="applicationId != null">
+        application_id,
+      </if>
+      <if test="applicationVersionId != null">
+        application_version_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateStatus != null">
+        update_status,
+      </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="downloadTime != null">
+        download_time,
+      </if>
+      <if test="installTime != null">
+        install_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serialId != null">
+        #{serialId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneOsType != null">
+        #{phoneOsType,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneVersion != null">
+        #{phoneVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneType != null">
+        #{phoneType,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null">
+        #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationId != null">
+        #{applicationId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationVersionId != null">
+        #{applicationVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStatus != null">
+        #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadTime != null">
+        #{downloadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installTime != null">
+        #{installTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    update tbl_update_recorder
+    <set>
+      <if test="serialId != null">
+        serial_id = #{serialId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneOsType != null">
+        phone_os_type = #{phoneOsType,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneVersion != null">
+        phone_version = #{phoneVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneType != null">
+        phone_type = #{phoneType,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null">
+        version_name = #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationId != null">
+        application_id = #{applicationId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationVersionId != null">
+        application_version_id = #{applicationVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStatus != null">
+        update_status = #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadTime != null">
+        download_time = #{downloadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installTime != null">
+        install_time = #{installTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    update tbl_update_recorder
+    set serial_id = #{serialId,jdbcType=VARCHAR},
+      phone_os_type = #{phoneOsType,jdbcType=VARCHAR},
+      phone_version = #{phoneVersion,jdbcType=VARCHAR},
+      phone_type = #{phoneType,jdbcType=VARCHAR},
+      version_name = #{versionName,jdbcType=VARCHAR},
+      application_id = #{applicationId,jdbcType=VARCHAR},
+      application_version_id = #{applicationVersionId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_status = #{updateStatus,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      download_time = #{downloadTime,jdbcType=TIMESTAMP},
+      install_time = #{installTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update tbl_update_recorder
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="serial_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.serialId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="phone_os_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.phoneOsType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="phone_version = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.phoneVersion,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="phone_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.phoneType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="version_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.versionName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="application_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.applicationId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="application_version_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.applicationVersionId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="update_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updateStatus,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="check_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.checkTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="download_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.downloadTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="install_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.installTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into tbl_update_recorder
+    (id, serial_id, phone_os_type, phone_version, phone_type, version_name, application_id, 
+      application_version_id, create_time, update_status, check_time, download_time, 
+      install_time)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=VARCHAR}, #{item.serialId,jdbcType=VARCHAR}, #{item.phoneOsType,jdbcType=VARCHAR}, 
+        #{item.phoneVersion,jdbcType=VARCHAR}, #{item.phoneType,jdbcType=VARCHAR}, #{item.versionName,jdbcType=VARCHAR}, 
+        #{item.applicationId,jdbcType=VARCHAR}, #{item.applicationVersionId,jdbcType=VARCHAR}, 
+        #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateStatus,jdbcType=VARCHAR}, #{item.checkTime,jdbcType=TIMESTAMP}, 
+        #{item.downloadTime,jdbcType=TIMESTAMP}, #{item.installTime,jdbcType=TIMESTAMP}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    insert into tbl_update_recorder
+    (id, serial_id, phone_os_type, phone_version, phone_type, version_name, application_id, 
+      application_version_id, create_time, update_status, check_time, download_time, 
+      install_time)
+    values
+    (#{id,jdbcType=VARCHAR}, #{serialId,jdbcType=VARCHAR}, #{phoneOsType,jdbcType=VARCHAR}, 
+      #{phoneVersion,jdbcType=VARCHAR}, #{phoneType,jdbcType=VARCHAR}, #{versionName,jdbcType=VARCHAR}, 
+      #{applicationId,jdbcType=VARCHAR}, #{applicationVersionId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateStatus,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{downloadTime,jdbcType=TIMESTAMP}, 
+      #{installTime,jdbcType=TIMESTAMP})
+    on duplicate key update 
+    id = #{id,jdbcType=VARCHAR}, 
+    serial_id = #{serialId,jdbcType=VARCHAR}, 
+    phone_os_type = #{phoneOsType,jdbcType=VARCHAR}, 
+    phone_version = #{phoneVersion,jdbcType=VARCHAR}, 
+    phone_type = #{phoneType,jdbcType=VARCHAR}, 
+    version_name = #{versionName,jdbcType=VARCHAR}, 
+    application_id = #{applicationId,jdbcType=VARCHAR}, 
+    application_version_id = #{applicationVersionId,jdbcType=VARCHAR}, 
+    create_time = #{createTime,jdbcType=TIMESTAMP}, 
+    update_status = #{updateStatus,jdbcType=VARCHAR}, 
+    check_time = #{checkTime,jdbcType=TIMESTAMP}, 
+    download_time = #{downloadTime,jdbcType=TIMESTAMP}, 
+    install_time = #{installTime,jdbcType=TIMESTAMP}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="site.chenwei.update.model.UpdateRecorder">
+    <!--@mbg.generated-->
+    insert into tbl_update_recorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="serialId != null">
+        serial_id,
+      </if>
+      <if test="phoneOsType != null">
+        phone_os_type,
+      </if>
+      <if test="phoneVersion != null">
+        phone_version,
+      </if>
+      <if test="phoneType != null">
+        phone_type,
+      </if>
+      <if test="versionName != null">
+        version_name,
+      </if>
+      <if test="applicationId != null">
+        application_id,
+      </if>
+      <if test="applicationVersionId != null">
+        application_version_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateStatus != null">
+        update_status,
+      </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="downloadTime != null">
+        download_time,
+      </if>
+      <if test="installTime != null">
+        install_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serialId != null">
+        #{serialId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneOsType != null">
+        #{phoneOsType,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneVersion != null">
+        #{phoneVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneType != null">
+        #{phoneType,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null">
+        #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationId != null">
+        #{applicationId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationVersionId != null">
+        #{applicationVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStatus != null">
+        #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadTime != null">
+        #{downloadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installTime != null">
+        #{installTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serialId != null">
+        serial_id = #{serialId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneOsType != null">
+        phone_os_type = #{phoneOsType,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneVersion != null">
+        phone_version = #{phoneVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneType != null">
+        phone_type = #{phoneType,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null">
+        version_name = #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationId != null">
+        application_id = #{applicationId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationVersionId != null">
+        application_version_id = #{applicationVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStatus != null">
+        update_status = #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadTime != null">
+        download_time = #{downloadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installTime != null">
+        install_time = #{installTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.chenwei.update.mapper.ApplicationVersionMapper">
+    <resultMap id="BaseResultMap" type="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        <!--@Table tbl_application_version-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="application_id" jdbcType="VARCHAR" property="applicationId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="enable_status" jdbcType="VARCHAR" property="enableStatus"/>
+        <result column="signature" jdbcType="VARCHAR" property="signature"/>
+        <result column="version_file" jdbcType="VARCHAR" property="versionFile"/>
+        <result column="patch_file" jdbcType="VARCHAR" property="patchFile"/>
+        <result column="current_version" jdbcType="BOOLEAN" property="currentVersion"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, application_id, `name`, create_time, update_time, enable_status, signature, version_file,
+        patch_file, current_version
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_application_version
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from tbl_application_version
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        insert into tbl_application_version (id, application_id, `name`,
+                                             create_time, update_time, enable_status,
+                                             signature, version_file, patch_file,
+                                             current_version)
+        values (#{id,jdbcType=VARCHAR}, #{applicationId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{enableStatus,jdbcType=VARCHAR},
+                #{signature,jdbcType=VARCHAR}, #{versionFile,jdbcType=VARCHAR}, #{patchFile,jdbcType=VARCHAR},
+                #{currentVersion,jdbcType=BOOLEAN})
+    </insert>
+    <insert id="insertSelective" parameterType="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        insert into tbl_application_version
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="applicationId != null">
+                application_id,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="enableStatus != null">
+                enable_status,
+            </if>
+            <if test="signature != null">
+                signature,
+            </if>
+            <if test="versionFile != null">
+                version_file,
+            </if>
+            <if test="patchFile != null">
+                patch_file,
+            </if>
+            <if test="currentVersion != null">
+                current_version,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="applicationId != null">
+                #{applicationId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="enableStatus != null">
+                #{enableStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="signature != null">
+                #{signature,jdbcType=VARCHAR},
+            </if>
+            <if test="versionFile != null">
+                #{versionFile,jdbcType=VARCHAR},
+            </if>
+            <if test="patchFile != null">
+                #{patchFile,jdbcType=VARCHAR},
+            </if>
+            <if test="currentVersion != null">
+                #{currentVersion,jdbcType=BOOLEAN},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        update tbl_application_version
+        <set>
+            <if test="applicationId != null">
+                application_id = #{applicationId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="enableStatus != null">
+                enable_status = #{enableStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="signature != null">
+                signature = #{signature,jdbcType=VARCHAR},
+            </if>
+            <if test="versionFile != null">
+                version_file = #{versionFile,jdbcType=VARCHAR},
+            </if>
+            <if test="patchFile != null">
+                patch_file = #{patchFile,jdbcType=VARCHAR},
+            </if>
+            <if test="currentVersion != null">
+                current_version = #{currentVersion,jdbcType=BOOLEAN},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        update tbl_application_version
+        set application_id  = #{applicationId,jdbcType=VARCHAR},
+            `name`          = #{name,jdbcType=VARCHAR},
+            create_time     = #{createTime,jdbcType=TIMESTAMP},
+            update_time     = #{updateTime,jdbcType=TIMESTAMP},
+            enable_status   = #{enableStatus,jdbcType=VARCHAR},
+            signature       = #{signature,jdbcType=VARCHAR},
+            version_file    = #{versionFile,jdbcType=VARCHAR},
+            patch_file      = #{patchFile,jdbcType=VARCHAR},
+            current_version = #{currentVersion,jdbcType=BOOLEAN}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update tbl_application_version
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="application_id = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.applicationId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="`name` = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.name,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="create_time = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="update_time = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="enable_status = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.enableStatus,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="signature = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.signature,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="version_file = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.versionFile,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="patch_file = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.patchFile,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="current_version = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.currentVersion,jdbcType=BOOLEAN}
+                </foreach>
+            </trim>
+        </trim>
+        where id in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.id,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into tbl_application_version
+                (id, application_id, `name`, create_time, update_time, enable_status, signature,
+                 version_file, patch_file, current_version)
+                values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.applicationId,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR},
+             #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+             #{item.enableStatus,jdbcType=VARCHAR},
+             #{item.signature,jdbcType=VARCHAR}, #{item.versionFile,jdbcType=VARCHAR},
+             #{item.patchFile,jdbcType=VARCHAR},
+             #{item.currentVersion,jdbcType=BOOLEAN})
+        </foreach>
+    </insert>
+    <insert id="insertOrUpdate" parameterType="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        insert into tbl_application_version
+                (id, application_id, `name`, create_time, update_time, enable_status, signature,
+                 version_file, patch_file, current_version)
+        values (#{id,jdbcType=VARCHAR}, #{applicationId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{enableStatus,jdbcType=VARCHAR},
+                #{signature,jdbcType=VARCHAR}, #{versionFile,jdbcType=VARCHAR}, #{patchFile,jdbcType=VARCHAR},
+                #{currentVersion,jdbcType=BOOLEAN})
+        on duplicate key update id              = #{id,jdbcType=VARCHAR},
+                                application_id  = #{applicationId,jdbcType=VARCHAR},
+                                `name`          = #{name,jdbcType=VARCHAR},
+                                create_time     = #{createTime,jdbcType=TIMESTAMP},
+                                update_time     = #{updateTime,jdbcType=TIMESTAMP},
+                                enable_status   = #{enableStatus,jdbcType=VARCHAR},
+                                signature       = #{signature,jdbcType=VARCHAR},
+                                version_file    = #{versionFile,jdbcType=VARCHAR},
+                                patch_file      = #{patchFile,jdbcType=VARCHAR},
+                                current_version = #{currentVersion,jdbcType=BOOLEAN}
+    </insert>
+    <insert id="insertOrUpdateSelective" parameterType="site.chenwei.update.model.ApplicationVersion">
+        <!--@mbg.generated-->
+        insert into tbl_application_version
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="applicationId != null">
+                application_id,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="enableStatus != null">
+                enable_status,
+            </if>
+            <if test="signature != null">
+                signature,
+            </if>
+            <if test="versionFile != null">
+                version_file,
+            </if>
+            <if test="patchFile != null">
+                patch_file,
+            </if>
+            <if test="currentVersion != null">
+                current_version,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="applicationId != null">
+                #{applicationId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="enableStatus != null">
+                #{enableStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="signature != null">
+                #{signature,jdbcType=VARCHAR},
+            </if>
+            <if test="versionFile != null">
+                #{versionFile,jdbcType=VARCHAR},
+            </if>
+            <if test="patchFile != null">
+                #{patchFile,jdbcType=VARCHAR},
+            </if>
+            <if test="currentVersion != null">
+                #{currentVersion,jdbcType=BOOLEAN},
+            </if>
+        </trim>
+        on duplicate key update
+        <trim suffixOverrides=",">
+            <if test="id != null">
+                id = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="applicationId != null">
+                application_id = #{applicationId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="enableStatus != null">
+                enable_status = #{enableStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="signature != null">
+                signature = #{signature,jdbcType=VARCHAR},
+            </if>
+            <if test="versionFile != null">
+                version_file = #{versionFile,jdbcType=VARCHAR},
+            </if>
+            <if test="patchFile != null">
+                patch_file = #{patchFile,jdbcType=VARCHAR},
+            </if>
+            <if test="currentVersion != null">
+                current_version = #{currentVersion,jdbcType=BOOLEAN},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectListByApplicationId" resultMap="BaseResultMap">
+        select *
+        from tbl_application_version
+        where application_id = #{applicationId,jdbcType=VARCHAR};
+    </select>
+
+    <select id="selectByApplicationIdAndSignature" resultMap="BaseResultMap">
+        select *
+        from tbl_application_version
+        where application_id = #{param1,jdbcType=VARCHAR}
+          and signature = #{param2,jdbcType=VARCHAR};
+    </select>
+
+    <select id="selectCurrentVersionByApplicationID" resultMap="BaseResultMap">
+        select *
+        from tbl_application_version
+        where current_version = true
+          and application_id = #{applicationId,jdbcType=VARCHAR};
+    </select>
+</mapper>

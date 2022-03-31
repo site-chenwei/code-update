@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    password: ZXLuXVDzy0WCwVUii4Nu
+    username: root
+    url: jdbc:mysql://localhost:3306/code_update
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1024MB
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+code:
+  update:
+    qiNiuSecretkey: 7YUnUUHcnmtK1U-WJJWU1q4VP0Zfz5U8cDsdfPyn
+    qiNiuAccessKey: 2GMCkLwp97X70MLCkVnZq2NO21_PXyJawc11Wov6
+
+
