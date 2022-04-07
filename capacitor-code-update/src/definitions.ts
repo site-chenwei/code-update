@@ -1,5 +1,6 @@
 /// <reference types="@capacitor/cli" />
 import type { Plugin } from '@capacitor/core';
+import type { PluginListenerHandle } from '@capacitor/core/types/definitions';
 
 declare module '@capacitor/cli' {
   export interface PluginConfig {
@@ -9,7 +10,6 @@ declare module '@capacitor/cli' {
     };
   }
 }
-export const LISTENER_DOWNLOAD_PROGRESS = 'downloadProgress';
 
 export interface CapacitorCodeUpdatePlugin extends Plugin {
   checkUpdate(): Promise<Update | null>;
@@ -17,6 +17,8 @@ export interface CapacitorCodeUpdatePlugin extends Plugin {
   download(option: Update): Promise<LocalPackage | null>;
 
   install(option: { installMode: InstallMode }): Promise<InstallResult>;
+
+  addListener(eventName: 'downloadProgress', listenerFunc: (percent: string) => void): Promise<PluginListenerHandle>;
 }
 
 export enum InstallMode {
