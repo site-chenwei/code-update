@@ -20,9 +20,7 @@ public class CapacitorCodeUpdatePlugin extends Plugin {
 
     @PluginMethod
     public void checkUpdate(PluginCall call) {
-        String applicationId = call.getString("applicationId");
-        String serverUrl = call.getString("serverUrl");
-        call.resolve(implementation.checkUpdate(applicationId, serverUrl));
+        call.resolve(implementation.checkUpdate());
     }
 
     @PluginMethod

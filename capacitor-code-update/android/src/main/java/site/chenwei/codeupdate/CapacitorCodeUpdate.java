@@ -79,9 +79,9 @@ public class CapacitorCodeUpdate {
     }
 
     private void initUpdateSettings() {
-        this.applicationId = this.prefsOfUpdate.getString(APPLICATION_ID_NAME, "");
+        this.applicationId = this.plugin.getConfig().getString(APPLICATION_ID_NAME, "");
         this.applicationVersionId = this.prefsOfUpdate.getString(APPLICATION_VERSION_ID_NAME, "");
-        this.serverUrl = this.prefsOfUpdate.getString(SERVER_URL_NAME, "");
+        this.serverUrl = this.plugin.getConfig().getString(SERVER_URL_NAME, "");
     }
 
     private void initGuid() {
@@ -98,7 +98,7 @@ public class CapacitorCodeUpdate {
         }
     }
 
-    public JSObject checkUpdate(String applicationId, String serverUrl) {
+    public JSObject checkUpdate() {
         try {
             this.editorOfUpdate.putString(SERVER_URL_NAME, serverUrl);
             Map<String, String> params = new HashMap<>();
